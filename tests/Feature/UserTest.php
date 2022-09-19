@@ -31,8 +31,7 @@ class UserTest extends TestCase
                 ]
             ]);
         }else{
-            $response->assertStatus(200)
-                ->assertExactJson(['created' => true]);
+            $response->assertCreated();
         }
     }
 

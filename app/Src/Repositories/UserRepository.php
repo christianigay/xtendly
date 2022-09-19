@@ -29,4 +29,9 @@ class UserRepository implements RepositoryInterface {
     {
         return $this->model->findOrFail($id);
     }
+
+    public function getByEmail($email)
+    {
+        return $this->model->where('email', $email)->first();
+    }
 }

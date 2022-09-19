@@ -16,6 +16,6 @@ class UserController extends Controller
     {
         $request->validated();
         $result =  $this->userInteractor->create($request->all());
-        return response()->json(['created' => $result ? true : false]);
+        return response()->json(['created' => $result ? true : false], 201);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Src\Interactors\UserInteractor;
 use App\Src\Repositories\UserRepository;
+use App\Src\Interactors\AuthenticationInteractor;
 use Illuminate\Support\ServiceProvider;
 
 class InteractorServiceProvider extends ServiceProvider
@@ -19,6 +20,11 @@ class InteractorServiceProvider extends ServiceProvider
             [
                 'class' => UserInteractor::class, 
                 'name' => 'App\Src\Interactors\UserInteractor', 
+                'dependency' => UserRepository::class
+            ],
+            [
+                'class' => AuthenticationInteractor::class, 
+                'name' => 'App\Src\Interactors\AuthenticationInteractor', 
                 'dependency' => UserRepository::class
             ]
         ];
