@@ -15,21 +15,21 @@ class AdminAuthTest extends TestCase
      */
     public function test_admin_login()
     {
-        $data = [
-            'email' => 'test@gmail.com',
-            'password' => 'password'
-        ];
-        $response = $this->postJson('/api/admin/auth/login', $data);
+        $response = $this->login($this, 'password');
         $response->assertOk();
     }
 
     public function test_admin_invalid()
     {
-        $data = [
-            'email' => 'test@gmail.com',
-            'password' => 'password1'
-        ];
-        $response = $this->postJson('/api/admin/auth/login', $data);
+        $response = $this->login($this, 'password1');
         $response->assertStatus(302);
     }
+
+    public function test_user_details()
+    {
+        $response = $this->login($this, 'password');
+        $response = $this->getJson('/api/admin/user/details');
+        $response->assertStatus(200);
+    }
+
 }
