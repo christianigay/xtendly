@@ -1,4 +1,15 @@
 <template>
-    <v-btn color="teal">test</v-btn>
-    How To Install Vue 3 in Laravel 9 with Vite - christian
+    <component :is="layout">
+        <router-view></router-view>
+    </component>
 </template>
+<script>
+export default {
+    name: 'App',
+    data(){
+        return {
+            layout: 'div'
+        }
+    }
+}
+</script>
