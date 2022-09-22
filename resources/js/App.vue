@@ -1,9 +1,6 @@
 <template>
     <v-app>
-
-        <component :is="layout">
-            
-        </component>
+        <component :is="layout"></component>
     </v-app>
 </template>
 <script>
