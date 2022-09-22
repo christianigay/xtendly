@@ -6,7 +6,8 @@ import App from '@/App.vue'
 
 const app = createApp(App);
 
-const components = import.meta.globEager('@/components/layouts/*.vue')
+const components = import.meta.globEager('@/layouts/*.vue')
+// const componentsLayout = import.meta.globEager('@/components/layouts/*.vue')
 
 Object.entries(components).forEach(([path, definition]) => {
   const componentName = path.split('/').pop().replace(/\.\w+$/, '')
