@@ -2,6 +2,7 @@ import './bootstrap';
 import { createApp } from 'vue';
 import vuetify from '@/plugins/vuetify.js'
 import router from '@/router/index.js'
+import store from './store'
 import App from '@/App.vue'
 
 const app = createApp(App);
@@ -14,6 +15,7 @@ Object.entries(components).forEach(([path, definition]) => {
   app.component(componentName, definition.default)
 })
 
+app.use(store)
 app.use(vuetify)
 app.use(router)
 app.mount("#app");

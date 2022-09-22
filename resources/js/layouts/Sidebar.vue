@@ -1,5 +1,6 @@
 <template>
     <v-navigation-drawer
+        v-model="drawer"
 		fixed
 		app
 	>
@@ -47,12 +48,25 @@
     </v-navigation-drawer>    
 </template>
   
-  <script>
-  import { menus } from '@/data/menus.js'
-  export default {
+<script>
+import { menus } from '@/data/menus.js'
+import { mapGetters } from 'vuex'
+export default {
     data: () => ({
-      items: menus,
+        items: menus,
     }),
-  }
-  </script>
+    computed: {
+		drawer: {
+			get() {
+				return this.$store.state.ui.drawer;
+			},
+			set(state) {
+				if (state !== this.$store.state.ui.drawer) {
+                    this.$store.commit('ui/updateDrawer')
+                }
+			}
+		}
+	}
+}
+</script>
   

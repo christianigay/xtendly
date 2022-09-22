@@ -1,7 +1,9 @@
 <template>
     <v-app-bar app>
         <template v-slot:prepend>
-          <v-app-bar-nav-icon></v-app-bar-nav-icon>
+          <v-app-bar-nav-icon
+          @click.stop="$store.dispatch('ui/MODIFY_DRAWER')"
+          ></v-app-bar-nav-icon>
         </template>
 
         <v-app-bar-title>Title</v-app-bar-title>
