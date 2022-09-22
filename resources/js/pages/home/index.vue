@@ -1,13 +1,10 @@
 <template>
-    <div>Homepage content</div>
+    <div>Homepage content asdf</div>
+    <v-btn color="teal">tst</v-btn>
 </template>
 <script>
 
 export default {
-    // layout: 'defaultlayout',
-    name: 'Home',
-    // created() {
-    //     this.$emit('update:layout', LayoutDefault);
-    // }
+    
 }
 </script>

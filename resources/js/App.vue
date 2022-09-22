@@ -11,10 +11,14 @@ export default {
             layout: 'LayoutDefault'
         }
     },
-    methods: {
-        // updateLayout(layout){
-        //     this.layout = layout
-        // }
+    watch: {
+        '$route.meta.layout': {
+            handler(val){
+                this.layout = val || 'LayoutDefault'
+            },
+            immediate: true,
+            deep: true
+        }
     }
 }
 </script>
