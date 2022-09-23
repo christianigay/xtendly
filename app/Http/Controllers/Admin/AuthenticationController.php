@@ -29,4 +29,9 @@ class AuthenticationController extends Controller
         $request->session()->regenerateToken();
     }
 
+    public function checkUser()
+    {
+        return Auth::check();
+    }
+
 }
