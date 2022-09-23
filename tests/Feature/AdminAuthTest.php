@@ -27,7 +27,7 @@ class AdminAuthTest extends TestCase
 
     public function test_user_details()
     {
-        $response = $this->login($this, 'password');
+        // $response = $this->login($this, 'password');
         $response = $this->getJson('/api/admin/user/details');
         $response->assertStatus(200);
     }
