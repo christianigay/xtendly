@@ -10,8 +10,10 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
+        <v-btn icon
+        @click="logout"
+        >
+          <v-icon>mdi-power</v-icon>
         </v-btn>
 
         <v-btn icon>
@@ -23,3 +25,13 @@
         </v-btn>
     </v-app-bar>
 </template>
+<script>
+import { apiLogout } from '@/apis/auth.js'
+export default {
+  methods: {
+    logout(){
+      apiLogout().then(() => this.$router.push({name: 'auth-login'}))
+    }
+  }
+}
+</script>

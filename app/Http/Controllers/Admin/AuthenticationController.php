@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserLoginRequest;
 use App\Src\Interactors\AuthenticationInteractor;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthenticationController extends Controller
@@ -19,6 +20,13 @@ class AuthenticationController extends Controller
     {
         $request->validated();
         return $this->authInteractor->login($request);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
     }
 
 }
