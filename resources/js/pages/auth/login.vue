@@ -12,10 +12,10 @@
         tile
         style="width: 350px;"
       >
-        <v-card-title class="justify-center teal--text">Register</v-card-title>
+        <v-card-title class="justify-center teal--text">Login</v-card-title>
         <v-text-field
           v-model="data.email"
-          @keyup.enter="handleRegister"
+          @keyup.enter="handleLogin"
           color="teal"
           outlined
           dense
@@ -24,7 +24,7 @@
         ></v-text-field>
         <v-text-field
           v-model="data.password"
-          @keyup.enter="handleRegister"
+          @keyup.enter="handleLogin"
           :append-icon="showPassword?'mdi-eye-off':'mdi-eye'"
           @click:append="showPassword=!showPassword"
           :type="showPassword ? 'text' : 'password'"
@@ -34,48 +34,29 @@
           label="Password *"
           prepend-inner-icon="mdi-lock-outline"
         ></v-text-field>
-        <v-text-field
-          v-model="confirmPassword"
-          @keyup.enter="handleRegister"
-          :type="showPassword ? 'text' : 'password'"
-          color="teal"
-          outlined
-          dense
-          label="Confirm Password *"
-          prepend-inner-icon="mdi-lock-outline"
-        ></v-text-field>
-        <v-text-field
-          v-model="data.name"
-          @keyup.enter="handleRegister"
-          color="teal"
-          outlined
-          dense
-          label="Name *"
-          prepend-inner-icon="mdi-lock-outline"
-        ></v-text-field>
         <div>
           <v-row>
             <v-col
             cols="6"
             >
               <v-btn
-              @click="$router.push('/auth/login')"
+              @click="$router.push('/auth/register')"
               outlined
               block
               >
-                Login
+                Register
               </v-btn>
             </v-col>
             <v-col
             cols="6"
             >
               <v-btn
-              @click="handleRegister"
+              @click="handleLogin"
               color="teal"
               outlined
               block
               >
-                Register
+                Login
               </v-btn>
             </v-col>
             <v-col
@@ -97,23 +78,27 @@
     </div>
 </template>
 <script>
-import { apiRegister } from '@/apis/user.js'
+import { apiLogin } from '@/apis/auth.js'
 export default {
     data: () => ({
         showPassword: false,
         data: {
           email: '',
           password: '',
-          name: ''
         },
-        confirmPassword: ''
     }),
     methods: {
-      handleRegister() {
+      handleLogin() {
         if(! this.data.password) return;
-        if(this.confirmPassword != this.data.password) return;
-        if(! this.data.name) return;
-        apiRegister(this.data)
+        if(! this.data.email) return;
+        apiLogin(this.data)
+        .then(({data}) => {
+          if(data && data.user) {
+            this.$router.push({name: 'dashboard'})
+            console.log(data, 'data')
+
+          }
+        })
       }
     }
 }
