@@ -2,6 +2,7 @@
 namespace App\Src\Interactors;
 
 use App\Src\Repositories\RepositoryInterface;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,10 +13,11 @@ class AuthenticationInteractor {
         $this->repository = $repository;
     }
 
-    public function login($request)
+    public function login(Request $request)
     {
         if(Auth::attempt($request->all())){
-            return Auth::user();
+            $request->session()->regenerate();
+            return response(['user' => auth()->user()]);
         }
 
         return back()->withErrors([
