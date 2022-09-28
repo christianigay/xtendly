@@ -1,6 +1,6 @@
 const menus = [
     {
-        icon: 'font_download',
+        icon: 'mdi-account',
         title: 'Home',
         to: '/'
     },
