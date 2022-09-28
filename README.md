@@ -1,5 +1,6 @@
 ## Laravel 9
 - composer install
+- setup database
 - php artisan migrate
 
 ## Node Version: 16.14

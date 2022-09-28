@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Laravel9 + Vue3 + Vuetify</title>
+	<title>Laravel9 + Vue3 + Quasar</title>
 
 	@vite('resources/css/app.css')
 </head>

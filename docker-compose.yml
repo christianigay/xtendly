@@ -7,9 +7,9 @@ networks:
 services:
   nginx:
     image: nginx
-    container_name: laravel9-nginx
+    container_name: larquasvite9-nginx
     ports:
-    - "8121:80"
+    - "8122:80"
     volumes:
       - ./:/var/www/html
       - ./server_dev/nginx/default.conf:/etc/nginx/conf.d/default.conf
@@ -21,7 +21,7 @@ services:
     build:
       context: .
       dockerfile: server_dev/Dockerfile
-    container_name: laravel9-php
+    container_name: larquasvite9-php
     volumes:
       - ./:/var/www/html
     networks:

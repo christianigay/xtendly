@@ -1,11 +1,11 @@
 <template>
     <Sidebar />
     <Header />
-    <v-main>
-        <v-container class="ma-4" fluid>
+    <div>
+        <div>
             <router-view></router-view>
-        </v-container>
-    </v-main>
+        </div>
+    </div>
     <Footer />
 </template>
 
