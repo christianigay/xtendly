@@ -1,7 +1,7 @@
 <template>
-    <v-app>
+    <q-layout view="hHh lpR fff">
         <component :is="layout"></component>
-    </v-app>
+    </q-layout>
 </template>
 <script>
 export default {

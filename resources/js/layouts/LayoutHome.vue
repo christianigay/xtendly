@@ -1,10 +1,6 @@
 <template>
     <Header />
-    <div>
-        <div>
-            <router-view></router-view>
-        </div>
-    </div>
+    <Content />
     <Footer />
 </template>
 
