@@ -10,7 +10,7 @@ import VueAxios from 'vue-axios'
 
 const app = createApp(App);
 
-const components = import.meta.globEager('@/layouts/*.vue')
+const components = import.meta.globEager(['@/layouts/*.vue', '@/components/forms/*.vue'])
 
 Object.entries(components).forEach(([path, definition]) => {
   const componentName = path.split('/').pop().replace(/\.\w+$/, '')
