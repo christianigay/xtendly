@@ -4,6 +4,7 @@
   :label="label"
   :dense="dense"
   :disable="disable"
+  :type="type"
   outlined
   class="q-my-md"
   />

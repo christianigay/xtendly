@@ -1,4 +1,5 @@
 <template>
+    <div class="text-h4 q-ma-md">Products</div>
   <div class="q-pa-md">
     <data-table
     :data="tableContent"
@@ -15,7 +16,7 @@
           {{getTotalPrice(item)}}
         </template>
         <template v-slot:action="{item}">
-          <q-btn @click="addToCart(item)" class="q-mx-sm" size="sm" label="Add to Cart`" color="grey" outline></q-btn>
+          <q-btn @click="addToCart(item)" class="q-mx-sm" size="sm" label="Add to Cart`" color="teal" outline></q-btn>
           <q-btn @click="editItem(item)" size="sm" label="Edit`" color="primary" outline></q-btn>
         </template>
         
@@ -28,7 +29,9 @@ import DataTable from '@/components/forms/Datatable.vue'
 import TableHeader from '@/components/forms/TableHeader.vue'
 import { productList } from '@/apis/product.js'
 import { mapGetters } from 'vuex'
+import ToastHelper from '@/mixins/ToastHelper.vue'
 export default {
+    mixins: [ToastHelper],
     components: {DataTable, TableHeader},
     data: () => ({
         columns: [
@@ -91,6 +94,7 @@ export default {
     },
     methods: {
         addToCart(item){
+            this.showToast("Item added to cart", "secondary");
             this.$store.dispatch('cart/SAVE_CART_ITEM', item)
         },
         getTotalPrice(item){

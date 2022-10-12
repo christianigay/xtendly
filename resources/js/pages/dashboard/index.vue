@@ -1,5 +1,5 @@
 <template>
-    <h3>Dashboard Page</h3>
+    <div class="text-h4 q-ma-md">Dashboard Page</div>
 </template>
 <script>
 import { apiDetails } from '@/apis/user.js'

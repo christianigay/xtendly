@@ -1,21 +1,24 @@
 <template>
     <div class="row justify-center">
       <q-card class="col-xs-12 col-md-4 q-ma-xl q-pa-lg">
-        <div>Edit product</div>
+        <div class="text-h4">Edit product</div>
 
         <FormInput v-model:modelValue="form.name" :label="`Name`"/>
         <FormInput v-model:modelValue="form.description" :label="`Description`"/>
-        <FormInput v-model:modelValue="form.quantity" :label="`Quantity`"/>
-        <FormInput v-model:modelValue="form.price" :label="`Price`"/>
+        <FormInput v-model:modelValue="form.quantity" :label="`Quantity`" :type="`number`"/>
+        <FormInput v-model:modelValue="form.price" :label="`Price`" :type="`number`"/>
         <q-card-actions>
-          <q-btn @click="editProduct" color="primary" label="Save" />
+          <q-btn @click="editProduct" color="teal" label="Save" />
         </q-card-actions>
       </q-card>
     </div>
 </template>
 <script>
 import { productEdit, productGet } from '@/apis/product.js' 
+import ToastHelper from '@/mixins/ToastHelper.vue'
+
 export default {
+    mixins: [ToastHelper],
     data: () => ({
         form: {
             id: '',
@@ -37,7 +40,7 @@ export default {
             if(! this.form.name) return;
             productEdit(this.form)
             .then(({data}) => {
-                console.log(data, 'addproduct')
+                this.showToast("Product updated", "secondary");
                 this.$router.push({name: 'product-list'})
             })
         }

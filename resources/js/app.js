@@ -1,6 +1,6 @@
 import './bootstrap';
 import { createApp } from 'vue';
-import { Quasar } from 'quasar'
+import { Quasar, Notify } from 'quasar'
 import '@/quasar/quasar.js'
 import router from '@/router/index.js'
 import store from './store'
@@ -10,6 +10,7 @@ import VueAxios from 'vue-axios'
 
 const app = createApp(App);
 
+
 const components = import.meta.globEager(['@/layouts/*.vue', '@/components/forms/*.vue'])
 
 Object.entries(components).forEach(([path, definition]) => {
@@ -18,7 +19,11 @@ Object.entries(components).forEach(([path, definition]) => {
 })
 
 app.use(Quasar, {
-  plugins: {}
+  plugins: {Notify},
+  config: {
+    notify: {position: 'top-right',
+    timeout: 600}
+  }
 })
 
 app.use(VueAxios, axios)

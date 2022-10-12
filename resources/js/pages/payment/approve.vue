@@ -1,7 +1,7 @@
 <template>
-    <h4 class="text-center">
-        Paypal payment successful
-    </h4>
+    <q-card class="my-card bg-secondary text-white q-pa-md">
+        <div class="text-h4 q-ma-md">Paypal payment successful</div>
+    </q-card>
 </template>
 
 <script>

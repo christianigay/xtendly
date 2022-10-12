@@ -1,5 +1,5 @@
 <template>
-  <h2>Checkout</h2>
+  <div class="text-h4 q-ma-md">Checkout</div>
   <div class="q-pa-md">
       <data-table
       :data="cartItems"
@@ -21,7 +21,7 @@
       </div>
 
       <q-card-actions class="q-mt-xl">
-        <q-btn @click="payNow" color="primary" label="Place Order" />
+        <q-btn @click="payNow" color="teal" label="Place Order" :disable="grandTotal < 1"/>
       </q-card-actions>
     </q-card>
   </div>
