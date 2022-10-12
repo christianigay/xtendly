@@ -20,7 +20,7 @@ export default {
             var res;
             res = await payApprove({ token: this.token });
             if (res.status !== 200) return;
-            this.$router.push({ name: "giftcards" });
+            this.$router.push({ name: "product-list" });
         }
     }
 }

@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
 
 use Omnipay\Omnipay;
 use App\Models\Payment;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
 class PaymentController extends Controller
@@ -40,6 +43,7 @@ class PaymentController extends Controller
         
         try {
             $amount = $request->input('amount');
+            $productItems = $request->input('product_items');
             
             $body = [
                 "intent" => "CAPTURE",
@@ -64,7 +68,10 @@ class PaymentController extends Controller
              ->throw()->json();
             
             if (count($order['links'])) {
-                $this->savePayment($order, $amount, 'pending');
+                // $this->savePayment($order, $amount, 'pending');
+                $orderEntity = $this->saveOrder($amount, $order);
+                $this->saveOrderItems($orderEntity, $productItems);
+
                 foreach ($order['links'] as $link) {
                     if ($link['rel'] == 'approve') return $link['href'];
                 }
@@ -74,12 +81,37 @@ class PaymentController extends Controller
         }
     }
 
+    public function saveOrder($amount, $paypal)
+    {
+        $data = [
+            'token' => $paypal['id'],
+            'user_id' => Auth::user()->id,
+            'amount' => $amount,
+            'date' => Carbon::today()
+        ];
+        return Order::create($data);
+    }
+
+    public function saveOrderItems($order, $orderItems)
+    {
+        foreach($orderItems as $item){
+            if(! $item) continue;
+            $data = [
+                'order_id' => $order->id,
+                'buy_quantity' => $item['buy_quantity'],
+                'price' => $item['price'],
+                'buy_price_total' => $item['buy_price_total'],
+            ];
+            OrderItem::create($data);
+        }
+    }
+
     public function approve(Request $request)
     {
         try{
 
             $token = $request->token;
-            $params = Payment::where('payment_id', $token)->first();
+            $params = Order::where('token', $token)->first();
     
             // return error if no order corresponds to a token
             if (!$params) {
@@ -102,7 +134,7 @@ class PaymentController extends Controller
              ->throw()->json();
             $date = $capture['purchase_units'][0]['payments']['captures'][0]['create_time'];
             $receipt = $capture['purchase_units'][0]['payments']['captures'][0]['id'];
-            $this->updatePaidPayment($token, $date, $receipt);
+            $this->savePayment($params->id, $params->amount, 1, $date, $receipt);
             return response(['result' => 'success_payment']);
         
         } catch (Exception $e) {
@@ -119,14 +151,14 @@ class PaymentController extends Controller
         $payment->save();
     }
 
-    public function savePayment($order, $amount, $status)
+    public function savePayment($orderID, $amount, $status, $date, $receipt)
     {
         $payment = new Payment;
-        $payment->payment_id = $order['id'];
-        $payment->payee_id = 1;
-        $payment->payee_email = 'test@email.com';
+        $payment->order_id = $orderID;
         $payment->amount = $amount;
         $payment->currency = env('PAYPAL_CURRENCY');
+        $payment->date = Carbon::parse($date);
+        $payment->receipt_number = $receipt;
         $payment->payment_status = $status;
         $payment->save();
     }

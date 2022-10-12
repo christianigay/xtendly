@@ -16,7 +16,7 @@
               Grand Total
           </div>
           <div class="col">
-              {{ grandTotal }}
+              {{ grandTotal }} USD
           </div>
       </div>
 
@@ -93,7 +93,7 @@ export default {
       }),
       grandTotal(){
         let sum = this.cartItems.reduce((total, obj) => obj['buy_price_total'] + total,0)
-        return sum + ' USD'
+        return sum
       }
     },
     watch: {
