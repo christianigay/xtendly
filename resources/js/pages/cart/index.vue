@@ -26,7 +26,7 @@
         </div>
 
         <q-card-actions class="q-mt-xl">
-          <q-btn @click="checkout" color="primary" label="Checkout" />
+          <q-btn @click="$router.push({name: 'payment'})" color="primary" label="Checkout" />
         </q-card-actions>
       </q-card>
     </div>
@@ -111,9 +111,6 @@ export default {
         },
         deductQuantity(item){
             this.$store.dispatch('cart/DEDUCT_QUANTITY', item)
-        },
-        checkout(){
-
         }
     }
 

@@ -15,7 +15,6 @@
           {{getTotalPrice(item)}}
         </template>
         <template v-slot:action="{item}">
-          <q-btn @click="buyItem(item)" class="q-mx-sm" size="sm" label="Buy Now`" color="grey" outline></q-btn>
           <q-btn @click="addToCart(item)" class="q-mx-sm" size="sm" label="Add to Cart`" color="grey" outline></q-btn>
           <q-btn @click="editItem(item)" size="sm" label="Edit`" color="primary" outline></q-btn>
         </template>
@@ -112,9 +111,6 @@ export default {
         },
         addItem(){
             this.$router.push({name: 'product-add'})
-        },
-        buyItem(item){
-            this.$router.push({name: 'payment', params: {id: item.id}})
         },
         editItem(item){
             this.$router.push({name: 'product-edit', params: {id: item.id}})

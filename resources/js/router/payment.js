@@ -1,6 +1,6 @@
 export default[
     {
-        path:'/payment/:id',
+        path:'/payment',
         component: () => import('@/pages/payment/index.vue'),
         name:'payment',
         meta: {layout: 'LayoutDefault'}
