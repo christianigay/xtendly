@@ -14,6 +14,22 @@
         </data-table>
         
     </div>
+    <div class="row justify-end">
+      <q-card class="col-xs-12 col-md-4 q-ma-xl q-pa-lg">
+        <div class="row q-gutter-lg">
+            <div class="col text-weight-bolder">
+                Grand Total
+            </div>
+            <div class="col">
+                {{ grandTotal }}
+            </div>
+        </div>
+
+        <q-card-actions class="q-mt-xl">
+          <q-btn @click="checkout" color="primary" label="Checkout" />
+        </q-card-actions>
+      </q-card>
+    </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
@@ -80,7 +96,11 @@ export default {
     computed: {
         ...mapGetters({
             cartItems: 'cart/cartItems'
-        })
+        }),
+        grandTotal(){
+            let sum = this.cartItems.reduce((total, obj) => obj['buy_price_total'] + total,0)
+            return sum + ' USD'
+        }
     },
     methods: {
         removeItem(item){
@@ -91,6 +111,9 @@ export default {
         },
         deductQuantity(item){
             this.$store.dispatch('cart/DEDUCT_QUANTITY', item)
+        },
+        checkout(){
+
         }
     }
 

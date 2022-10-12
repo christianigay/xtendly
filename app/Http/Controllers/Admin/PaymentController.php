@@ -45,7 +45,7 @@ class PaymentController extends Controller
                 "intent" => "CAPTURE",
                 "purchase_units" => [[
                     "amount" => [
-                        "currency_code" => "EUR",
+                        "currency_code" => "USD",
                         "value" => number_format($amount, 2, '.', ' ') ?? '0'
                     ],
                     "description" => 'Tst'
