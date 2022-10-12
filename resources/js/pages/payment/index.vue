@@ -7,7 +7,7 @@
     <FormInput v-model:modelValue="form.quantity" :label="`Quantity`"/>
     <FormInput v-model:modelValue="form.price" :label="`Price`"/>
     <FormInput v-model:modelValue="form.amount" :label="`Amount`" :disable="true"/>
-    <q-btn @click="payNow">Pay Now</q-btn>
+    <q-btn @click="payNow">Checkout</q-btn>
   </q-card>
 </div>
 </template>

@@ -16,6 +16,7 @@
         </template>
         <template v-slot:action="{item}">
           <q-btn @click="buyItem(item)" class="q-mx-sm" size="sm" label="Buy Now`" color="grey" outline></q-btn>
+          <q-btn @click="addToCart(item)" class="q-mx-sm" size="sm" label="Add to Cart`" color="grey" outline></q-btn>
           <q-btn @click="editItem(item)" size="sm" label="Edit`" color="primary" outline></q-btn>
         </template>
         
@@ -27,6 +28,7 @@
 import DataTable from '@/components/forms/Datatable.vue'
 import TableHeader from '@/components/forms/TableHeader.vue'
 import { productList } from '@/apis/product.js'
+import { mapGetters } from 'vuex'
 export default {
     components: {DataTable, TableHeader},
     data: () => ({
@@ -80,10 +82,18 @@ export default {
         ],
         tableContent: []
     }),
+    computed: {
+        ...mapGetters({
+            cartItems: 'cart/cartItems'
+        })
+    },
     mounted(){
         this.getProducts()
     },
     methods: {
+        addToCart(item){
+            this.$store.dispatch('cart/SAVE_CART_ITEM', item)
+        },
         getTotalPrice(item){
             if(item && item.quantity){
                 return item.quantity * item.price
