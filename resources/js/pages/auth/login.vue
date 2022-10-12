@@ -1,7 +1,7 @@
 <template>
     <div class="row justify-center">
       <q-card class="col-xs-12 col-md-4 q-ma-xl q-pa-lg">
-        <div>Login</div>
+        <div class="q-ma-md text-center text-h4">Login</div>
 
         <FormInput v-model:modelValue="form.email" :label="`Email`"/>
         <FormPassword v-model:modelValue="form.password" :label="`Password`"/>
