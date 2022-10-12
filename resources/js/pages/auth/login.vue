@@ -2,8 +2,13 @@
     <div class="row justify-center">
       <q-card class="col-xs-12 col-md-4 q-ma-xl q-pa-lg">
         <div>Login</div>
+
         <FormInput v-model:modelValue="form.email" :label="`Email`"/>
         <FormPassword v-model:modelValue="form.password" :label="`Password`"/>
+        <q-card-actions>
+          <q-btn @click="$router.push({name: 'auth-register'})" color="grey" label="Register" />
+          <q-btn @click="handleLogin" color="primary" label="Login" />
+        </q-card-actions>
       </q-card>
     </div>
 </template>
@@ -13,16 +18,16 @@ export default {
     data: () => ({
         showPassword: false,
         form: {
-          email: 'test',
-          password: '',
+          email: 'test@gmail.com',
+          password: 'password',
         },
         dense: true
     }),
     methods: {
       handleLogin() {
-        if(! this.data.password) return;
-        if(! this.data.email) return;
-        apiLogin(this.data)
+        if(! this.form.password) return;
+        if(! this.form.email) return;
+        apiLogin(this.form)
         .then(({data}) => {
           if(data && data.user) {
             this.$router.push({name: 'dashboard'})

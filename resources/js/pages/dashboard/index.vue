@@ -1,6 +1,5 @@
 <template>
-    <div>Dashboard</div>
-    <q-icon name="font_download" />
+    <h3>Dashboard Page</h3>
 </template>
 <script>
 import { apiDetails } from '@/apis/user.js'

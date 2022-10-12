@@ -7,8 +7,9 @@
         <q-avatar>
           <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
         </q-avatar>
-        Title
+        Xtendly
       </q-toolbar-title>
+      <q-btn @click="logout" flat round dense icon="mdi-power-standby" />
     </q-toolbar>
   </q-header>
 </template>

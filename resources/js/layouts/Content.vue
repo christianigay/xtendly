@@ -1,6 +1,6 @@
 <template>
   <q-page-container>
-    <q-page>
+    <q-page class="q-ma-lg">
       <router-view />
     </q-page>
   </q-page-container>

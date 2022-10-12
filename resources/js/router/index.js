@@ -1,10 +1,12 @@
 import { createRouter,createWebHistory} from 'vue-router'
 import home from './home'
 import auth from './auth'
+import payment from './payment'
 
 const routes = [
     ...home,
-    ...auth
+    ...auth,
+    ...payment
 ]
 
 const router = createRouter({
