@@ -3,6 +3,7 @@
   v-model="values"
   :label="label"
   :dense="dense"
+  :disable="disable"
   outlined
   class="q-my-md"
   />
@@ -17,6 +18,10 @@ export default {
     type: {
       type: String,
       default: 'text'
+    },
+    disable: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => ({

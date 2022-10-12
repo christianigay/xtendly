@@ -1,8 +1,13 @@
 const menus = [
     {
-        icon: 'mdi-account',
+        icon: 'mdi-home',
         title: 'Home',
         to: '/'
+    },
+    {
+        icon: 'mdi-cards-variant',
+        title: 'Products',
+        to: '/product/list'
     },
     
   ]

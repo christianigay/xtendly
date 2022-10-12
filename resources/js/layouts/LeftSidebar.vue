@@ -28,6 +28,7 @@
             clickable
             v-ripple
             active-class="my-menu-link"
+            @click="$router.push(item.to)"
           >
             <q-item-section avatar>
               <q-icon :name="item.icon" />
@@ -53,8 +54,8 @@ export default {
 			},
 			set(state) {
 				if (state !== this.$store.state.ui.drawer) {
-                    this.$store.commit('ui/updateDrawer')
-                }
+          this.$store.commit('ui/updateDrawer')
+        }
 			}
 		}
 	}
