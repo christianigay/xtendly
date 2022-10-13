@@ -69,6 +69,8 @@ export default {
 	display: inline-block;
 	padding: 10px 25px;
 	background-color: #fff;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 .search-form input, button {
@@ -109,6 +111,8 @@ export default {
 	height: 81px;
 	position: relative;
 	background: #8bc540;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
 #pointer:after {
   content: "";
