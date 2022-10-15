@@ -1,7 +1,7 @@
 
 .home-wrapper {
-	/* background-image: url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80'); */
-	background-image: url('https://www.ringcentral.com/gb/en/blog/wp-content/uploads/2021/05/happy-manager-leads-a-meeting-in-the-office-640x427.jpg.webp');
+	background-image: url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80');
+	/* background-image: url('https://www.ringcentral.com/gb/en/blog/wp-content/uploads/2021/05/happy-manager-leads-a-meeting-in-the-office-640x427.jpg.webp'); */
 	padding: 42px 0px;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -29,7 +29,7 @@
 	position: absolute;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	opacity: 40%;
+	opacity: 80%;
 }
 
 .fastest-text {

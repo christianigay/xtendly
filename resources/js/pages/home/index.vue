@@ -1,6 +1,5 @@
 <template>
     <div class="q-mx-lg home-wrapper">
-		<!-- <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" /> -->
 				<div class="box-wrapper search-desktop"></div>
 				<div class="box-wrapper-mobile"></div>
 				<div class="column items-center search-desktop">
