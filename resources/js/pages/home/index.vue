@@ -45,11 +45,11 @@
 						<div>Learn More About FloQast</div>
 					</div>
 					<div class="search-mobile-body">
-						<div class="description-mobile" style="text-align: center; display: flex;">
+						<div class="description-mobile" style="text-align: center;">
 							<div class="desc1">Learn How FloQast Can </div>
 							<div class="desc2"> Your Month-End</div>
 						</div>
-						<div class="mobile-form-input description-mobile">
+						<div class="mobile-form-input">
 							<input v-model="form.firstname" placeholder="First Name"/>
 							<input v-model="form.email" placeholder="Email"/>
 						</div>
@@ -263,7 +263,7 @@ export default {
 @media only screen and (min-width: 831px) {
   
   .search-mobile {
-	display: none;
+		display: none;
   }
 }
 
@@ -278,7 +278,7 @@ export default {
   }
 
   .search-mobile-section {
-		margin-top: 60px;
+		margin-top: 46px;
   }
 
   .search-mobile-wrapper {
@@ -293,20 +293,36 @@ export default {
   .search-mobile-body {
 		background: #fff;
 		padding: 12px 16px;
+		border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 
 	.mobile-form-input input {
+		width: 100%;
+		margin: 4px 0px;
 		border: 1px solid #d9d5d5;
 		border-radius: 5px;
-		width: 100%;
-		margin-top: 12px;
+		padding: 3px 6px;
 	}
 
 	.mobile-button {
 		width: 100%;
-    margin-top: 12px;
-    color: #fff;
-    background: #9cc448;
+		margin-top: 8px;
+		color: #fff;
+		background: #9cc448;
+	}
+
+	.description-mobile {
+    font-weight: 700;
+    font-size: 16px;
+	}
+
+	.description-mobile .desc1 {
+		color: #77787a;
+	}
+
+	.description-mobile .desc2 {
+		color: #8bc540;
 	}
 }
 </style>
