@@ -7,6 +7,7 @@ import store from './store'
 import App from '@/App.vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import "@/assets/css/style.css"
 
 const app = createApp(App);
 

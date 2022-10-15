@@ -1,0 +1,269 @@
+
+.home-wrapper {
+	/* background-image: url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80'); */
+	background-image: url('https://www.ringcentral.com/gb/en/blog/wp-content/uploads/2021/05/happy-manager-leads-a-meeting-in-the-office-640x427.jpg.webp');
+	padding: 42px 0px;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 450px;
+}
+
+.box-wrapper {
+	background: #fff;
+	width: 50%;
+	height: 130px;
+	top: 45px;
+	position: absolute;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	opacity: 40%;
+}
+
+.box-wrapper-mobile {
+	background: #fff;
+	width: 72%;
+	height: 129px;
+	top: 42px;
+	position: absolute;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	opacity: 40%;
+}
+
+.fastest-text {
+	color: #9cc448;
+	font-size: 26px;
+	position: absolute;
+	top: 104px;
+}
+
+.way-text {
+	font-size: 16px;
+	position: absolute;
+	top: 136px;
+}
+
+.logo-first {
+	font-size: 45px;
+	margin: 14px -8px;
+	color: #9cc448;
+	font-weight: 600;
+	z-index: 5;
+}
+
+.logo-qast {
+	font-size: 45px;
+	margin: 14px 6px;
+	color: #6d6e70;
+	font-weight: 600;
+	z-index: 5;
+}
+
+.logo-the {
+	font-size: 16px;
+	margin: 46px 6px;
+	color: #6d6e70;
+	font-weight: 600;
+	z-index: 5;
+}
+
+.logo-f {
+	font-size: 46px;
+	margin: 14px -18px;
+	color: #fff;
+	font-weight: 600;
+	z-index: 3;
+}
+
+.logo-hash {
+	font-size: 55px;
+	font-weight: 600;
+	color: #6d6e70;
+	z-index: 3;
+}
+
+.description {
+	text-align: center;
+	padding: 4px 0px;
+	font-weight: 700;
+	font-size: 16px;
+}
+
+.description .desc1 {
+	color: #77787a;
+}
+
+.description .desc2 {
+	color: #8bc540;
+}
+
+.search {
+	margin-top: 148px;
+}
+
+.search-wrapper-desc {
+	width: 688px;
+	text-align: left !important;
+	font-style: italic;
+}
+
+.search-wrapper {
+  display: flex;
+	widows: 688px;
+}
+
+.search-form {
+	display: inline-block;
+	padding: 10px 25px;
+	background-color: #fff;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.search-form input, button {
+	border: 1px solid #d9d5d5;
+	border-radius: 5px;
+	padding: 3px 6px;
+}
+.search-form input{
+	width: 124px;
+}
+
+.search-form button {
+	background: #8bc540;
+	color: #fff;
+	width: 172px;
+}
+
+#pointer .wrapper {
+  padding: 20px 0px;
+	/* text-align: center; */
+	color: #fff;
+}
+
+#pointer .wrapper .header {
+	font-weight: 700;
+	font-size: 18px;
+	padding-left: 18px;
+}
+
+#pointer .wrapper .subheader {
+	font-weight: 500;
+	font-size: 13px;
+	padding-left: 26px;
+}
+
+#pointer {
+	width: 194px;
+	height: 81px;
+	position: relative;
+	background: #8bc540;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+#pointer:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-left: 20px solid white;
+/*   border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent; */
+}
+#pointer:before {
+	content: "";
+	position: absolute;
+	right: -20px;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-left: 20px solid #8bc540;
+	border-top: 39px solid transparent;
+	border-bottom: 41px solid transparent;
+}
+
+
+@media only screen and (min-width: 831px) {
+  
+  .search-mobile-section, .box-wrapper-mobile {
+		display: none;
+  }
+}
+
+@media only screen and (max-width: 830px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+
+	.search-mobile-wrapper-desc {
+		text-align: left !important;
+		font-style: italic;
+		width: 332px;
+	}
+	
+  .search, .search-desktop {
+		display: none;
+  }
+
+	.search-mobile-wrapper {
+		text-align: center;
+    background: #8bc540;
+    color: #fff;
+    padding: 8px 0px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+
+	.search-mobile-body {
+		background: #fff;
+		padding: 6px 0px;
+		border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+	.mobile-header {
+		font-weight: 700;
+	}
+
+	.mobile-subheader {
+		font-size: 13px;
+	}
+
+	.description-mobile .desc1 {
+		color: #77787a;
+		font-weight: 700;;
+	}
+
+	.description-mobile .desc2 {
+		color: #8bc540;
+		font-weight: 700;;
+	} 
+
+	.mobile-form-input {
+		width: 326px;
+		padding: 8px 14px
+	}
+
+	.mobile-form-input input, button {
+		width: 100%;
+		border: 1px solid #d9d5d5;
+		border-radius: 5px;
+		padding: 3px 6px;
+	}
+
+	.mob-form {
+		margin: 5px 0px;
+	}
+
+	.mobile-button {
+		color: #fff;
+		background: #9cc448;
+		margin-top: 4px;
+	}
+
+}
