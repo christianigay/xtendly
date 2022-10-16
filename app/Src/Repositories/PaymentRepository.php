@@ -1,11 +1,11 @@
 <?php
 namespace App\Src\Repositories;
 
-use App\Models\User;
+use App\Models\Payment;
 
-class PaypalRepository implements RepositoryInterface {
+class PaymentRepository implements RepositoryInterface {
 
-    public function __construct(User $user)
+    public function __construct(Payment $user)
     {
         $this->model = $user;
     }
@@ -30,8 +30,5 @@ class PaypalRepository implements RepositoryInterface {
         return $this->model->findOrFail($id);
     }
 
-    public function getByEmail($email)
-    {
-        return $this->model->where('email', $email)->first();
-    }
+
 }

@@ -15,7 +15,7 @@ class UserTest extends TestCase
     public function test_creating_unique_user_request()
     {
         $data = [
-            'email' => 'test@gmail.com',
+            'email' => 'test1@gmail.com',
             'name' => 'test email',
             'password' => 'password'
         ];
