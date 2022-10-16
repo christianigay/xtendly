@@ -7,7 +7,7 @@
         <FormPassword v-model:modelValue="form.password" :label="`Password`"/>
         <q-card-actions>
           <q-btn @click="$router.push({name: 'auth-register'})" color="grey" label="Register" />
-          <q-btn @click="handleLogin" color="primary" label="Login" />
+          <q-btn @click="handleLogin" color="teal" label="Login" />
         </q-card-actions>
       </q-card>
     </div>
@@ -31,8 +31,6 @@ export default {
         .then(({data}) => {
           if(data && data.user) {
             this.$router.push({name: 'dashboard'})
-            console.log(data, 'data')
-
           }
         })
       }

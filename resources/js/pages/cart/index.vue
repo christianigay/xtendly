@@ -6,9 +6,9 @@
         :columns="columns"
         >
             <template v-slot:action="{item}">
-                <q-btn @click="addQuantity(item)" class="q-mx-sm" size="sm" label="Add`" color="grey" outline></q-btn>
-                <q-btn @click="deductQuantity(item)" class="q-mx-sm" size="sm" label="Deduct`" color="grey" outline></q-btn>
-                <q-btn @click="removeItem(item)" size="sm" label="Delete`" color="primary" outline></q-btn>
+                <q-btn @click="addQuantity(item)" size="sm" label="Add`" color="teal" outline></q-btn>
+                <q-btn @click="deductQuantity(item)" class="q-mx-sm" size="sm" label="Deduct`" color="primary" outline></q-btn>
+                <q-btn @click="removeItem(item)" size="sm" label="Delete`" color="negative" outline></q-btn>
             </template>
             
         </data-table>
@@ -21,7 +21,7 @@
                 Grand Total
             </div>
             <div class="col">
-                {{ grandTotal }}
+                {{ grandTotal }} USD
             </div>
         </div>
 
@@ -99,7 +99,7 @@ export default {
         }),
         grandTotal(){
             let sum = this.cartItems.reduce((total, obj) => obj['buy_price_total'] + total,0)
-            return sum + ' USD'
+            return sum
         }
     },
     methods: {

@@ -4,6 +4,7 @@ import auth from './auth'
 import payment from './payment'
 import product from './product'
 import cart from './cart'
+import Axios from 'axios'
 
 const routes = [
     ...home,
@@ -16,6 +17,23 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  Axios.get(`api/admin/auth/check-user`).then(({data})=>{
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+      if (!data) {
+        next({
+          name: 'auth-login',
+          query: { redirect: to.fullPath }
+        })
+      } else {
+        next()
+      }
+    } else {
+      next()
+    }
+  })
 })
 
 export default router

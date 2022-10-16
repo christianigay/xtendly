@@ -30,8 +30,10 @@
 import { payApi } from '@/apis/payment.js'
 import { mapGetters } from 'vuex'
 import DataTable from '@/components/forms/Datatable.vue'
+import ToastHelper from '@/mixins/ToastHelper.vue'
 
 export default {
+  mixins: [ToastHelper],
   components: { DataTable },
     data: () => ({
         form: {
@@ -113,6 +115,10 @@ export default {
         payApi(this.form)
         .then(({data}) => {
             window.location = data
+        })
+        .catch(error => {
+          let msg = error.response.data.message
+          this.showToast(msg, "negative");          
         })
       }
     }

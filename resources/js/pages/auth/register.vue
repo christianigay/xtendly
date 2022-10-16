@@ -8,7 +8,7 @@
         <FormInput v-model:modelValue="form.name" :label="`Name`"/>
         <q-card-actions>
           <q-btn @click="$router.push({name: 'auth-login'})" color="grey" label="Login" />
-          <q-btn @click="handleRegister" color="primary" label="Register" />
+          <q-btn @click="handleRegister" color="teal" label="Register" />
         </q-card-actions>
       </q-card>
     </div>
