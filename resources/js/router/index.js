@@ -20,7 +20,8 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  Axios.get(`api/admin/auth/check-user`).then(({data})=>{
+  const baseURL = import.meta.env.VITE_APP_URL;
+  Axios.get(`${baseURL}/api/admin/auth/check-user`).then(({data})=>{
     if (to.matched.some(record => record.meta.requiresAuth)) {
       if (!data) {
         next({
